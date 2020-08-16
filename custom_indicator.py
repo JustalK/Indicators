@@ -11,7 +11,7 @@ from os.path import expanduser
 home = expanduser("~")
 
 currpath = os.path.dirname(os.path.realpath(__file__))
-iconpath = currpath+"/icon.png"
+iconpath = currpath+"/cog.png"
 commandpath = home
 
 class Indicator():
@@ -29,10 +29,14 @@ class Indicator():
             os.path.join(commandpath, "commands")
             ).read().splitlines()]
         cmd_data = [l.split("||") for l in cmd_data]
-        for cmd in cmd_data:
-            menuitem = Gtk.MenuItem.new_with_label(cmd[0].strip())
-            menuitem.connect("activate", self.run_script, cmd[1].strip())
+        for key in consts.COMMANDS.keys():
+            menuitem = Gtk.MenuItem.new_with_label(key)
+            menuitem.connect("activate", self.run_script, consts.COMMANDS[key])
             self.menu.append(menuitem)
+        #for cmd in cmd_data:
+        #    menuitem = Gtk.MenuItem.new_with_label(cmd[0].strip())
+        #    menuitem.connect("activate", self.run_script, cmd[1].strip())
+        #    self.menu.append(menuitem)
 
     def create_menu(self):
         self.menu = Gtk.Menu()

@@ -1,1 +1,2 @@
-NAME_MENU = 'Latsuj'
+NAME_MENU = 'Latsuj Menu'
+COMMANDS = {'BASHRC': 'gedit ~/.bashrc'}
