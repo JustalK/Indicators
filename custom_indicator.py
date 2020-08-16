@@ -24,23 +24,15 @@ class Indicator():
         self.indicator.set_menu(self.create_menu())
         self.indicator.set_label(consts.NAME_MENU, self.app)
 
-    def getscripts(self):
-        cmd_data = [l for l in open(
-            os.path.join(commandpath, "commands")
-            ).read().splitlines()]
-        cmd_data = [l.split("||") for l in cmd_data]
-        for key in consts.COMMANDS.keys():
+    def get_menu(self, commands):
+        for key in commands.keys():
             menuitem = Gtk.MenuItem.new_with_label(key)
             menuitem.connect("activate", self.run_script, consts.COMMANDS[key])
             self.menu.append(menuitem)
-        #for cmd in cmd_data:
-        #    menuitem = Gtk.MenuItem.new_with_label(cmd[0].strip())
-        #    menuitem.connect("activate", self.run_script, cmd[1].strip())
-        #    self.menu.append(menuitem)
 
     def create_menu(self):
         self.menu = Gtk.Menu()
-        self.getscripts()
+        self.get_menu(consts.COMMANDS)
         self.menu.show_all()
         return self.menu
 
