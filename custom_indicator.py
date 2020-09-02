@@ -30,6 +30,10 @@ class Indicator():
             menuitem = Gtk.MenuItem.new_with_label(key)
             menuitem.connect("activate", self.run_script, consts.COMMANDS[key])
             self.menu.append(menuitem)
+        self.menu.append(Gtk.SeparatorMenuItem())
+        menuitem = Gtk.MenuItem.new_with_label("Settings")
+        menuitem.connect("activate", self.settings)
+        self.menu.append(menuitem)
 
     def create_menu(self):
         self.menu = Gtk.Menu()
@@ -40,9 +44,9 @@ class Indicator():
     def run_script(self, widget, script):
         subprocess.Popen(["/bin/bash", "-c", script])
 
-	def settings(self):
-		top = tkinter.Tk()
-		top.mainloop()
+    def settings(self, widget):
+        top = tkinter.Tk()
+        top.mainloop()
 
     def stop(self, source):
         Gtk.main_quit()
