@@ -15,10 +15,6 @@ currpath = os.path.dirname(os.path.realpath(__file__))
 iconpath = currpath+"/cog.png"
 commandpath = home
 
-top = tkinter.Tk()
-# Code to add widgets will go here...
-top.mainloop()
-
 class Indicator():
     def __init__(self):
         self.app = 'update_setting'
@@ -43,6 +39,10 @@ class Indicator():
 
     def run_script(self, widget, script):
         subprocess.Popen(["/bin/bash", "-c", script])
+
+	def settings(self):
+		top = tkinter.Tk()
+		top.mainloop()
 
     def stop(self, source):
         Gtk.main_quit()
