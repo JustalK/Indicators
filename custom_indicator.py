@@ -45,8 +45,13 @@ class Indicator():
         subprocess.Popen(["/bin/bash", "-c", script])
 
     def settings(self, widget):
-        top = tkinter.Tk()
-        top.mainloop()
+        window = tkinter.Tk()
+        left = tkinter.Frame(master=window, width=200, height=100, bg="red")
+        left.pack(fill=tkinter.Y, side=tkinter.LEFT)
+        right = tkinter.Frame(master=window, width=100, bg="yellow")
+        right.pack(fill=tkinter.BOTH, side=tkinter.LEFT, expand=True)
+
+        window.mainloop()
 
     def stop(self, source):
         Gtk.main_quit()
