@@ -4,6 +4,7 @@ import os
 import signal
 import gi
 import consts
+import tkinter
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk, AppIndicator3
@@ -13,6 +14,10 @@ home = expanduser("~")
 currpath = os.path.dirname(os.path.realpath(__file__))
 iconpath = currpath+"/cog.png"
 commandpath = home
+
+top = tkinter.Tk()
+# Code to add widgets will go here...
+top.mainloop()
 
 class Indicator():
     def __init__(self):
