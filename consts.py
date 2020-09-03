@@ -1,4 +1,5 @@
 NAME_MENU = 'Latsuj Menu'
+NAME_SETTING = 'Latsuj Settings'
 BACKGROUND_COLOR = '#3e3e3e'
 MENU_COLOR = '#343434'
 MENU_SIZE = 260

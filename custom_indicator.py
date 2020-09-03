@@ -46,6 +46,7 @@ class Indicator():
 
     def settings(self, widget):
         window = tkinter.Tk()
+        window.title(consts.NAME_SETTING)
         width  = window.winfo_screenwidth()
         height = window.winfo_screenheight()
         x = int(width/2 - width/3)
