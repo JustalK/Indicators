@@ -5,7 +5,7 @@ class TestSum(unittest.TestCase):
 
     def test_sum(self):
         self.assertTrue(1 == 1)
-        init.Init()
+        #init.Init()
 
 if __name__ == '__main__':
     unittest.main()
