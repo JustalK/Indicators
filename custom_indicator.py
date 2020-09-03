@@ -46,9 +46,9 @@ class Indicator():
 
     def settings(self, widget):
         window = tkinter.Tk()
-        left = tkinter.Frame(master=window, width=200, height=100, bg="red")
+        left = tkinter.Frame(master=window, width=260, height=300, bg=consts.MENU_COLOR)
         left.pack(fill=tkinter.Y, side=tkinter.LEFT)
-        right = tkinter.Frame(master=window, width=100, bg="yellow")
+        right = tkinter.Frame(master=window, width=600, bg=consts.BACKGROUND_COLOR)
         right.pack(fill=tkinter.BOTH, side=tkinter.LEFT, expand=True)
 
         window.mainloop()
