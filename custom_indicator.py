@@ -46,9 +46,12 @@ class Indicator():
 
     def settings(self, widget):
         window = tkinter.Tk()
-        left = tkinter.Frame(master=window, width=260, height=300, bg=consts.MENU_COLOR)
+        width  = window.winfo_screenwidth()
+        height = window.winfo_screenheight()
+        window.geometry("{}x{}".format(int(width*2/3), int(height/2)))
+        left = tkinter.Frame(master=window, width=consts.MENU_SIZE, bg=consts.MENU_COLOR)
         left.pack(fill=tkinter.Y, side=tkinter.LEFT)
-        right = tkinter.Frame(master=window, width=600, bg=consts.BACKGROUND_COLOR)
+        right = tkinter.Frame(master=window, bg=consts.BACKGROUND_COLOR)
         right.pack(fill=tkinter.BOTH, side=tkinter.LEFT, expand=True)
 
         window.mainloop()
