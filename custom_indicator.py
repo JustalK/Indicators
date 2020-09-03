@@ -4,7 +4,7 @@ import os
 import signal
 import gi
 import consts
-import tkinter
+import settings
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk, AppIndicator3
@@ -45,19 +45,7 @@ class Indicator():
         subprocess.Popen(["/bin/bash", "-c", script])
 
     def settings(self, widget):
-        window = tkinter.Tk()
-        window.title(consts.NAME_SETTING)
-        width  = window.winfo_screenwidth()
-        height = window.winfo_screenheight()
-        x = int(width/2 - width/3)
-        y = int(height/2 - height/4)
-        window.geometry("{}x{}+{}+{}".format(int(width*2/3), int(height/2), x, y))
-        left = tkinter.Frame(master=window, width=consts.MENU_SIZE, bg=consts.MENU_COLOR)
-        left.pack(fill=tkinter.Y, side=tkinter.LEFT)
-        right = tkinter.Frame(master=window, bg=consts.BACKGROUND_COLOR)
-        right.pack(fill=tkinter.BOTH, side=tkinter.LEFT, expand=True)
-
-        window.mainloop()
+        settings.Window()
 
     def stop(self, source):
         Gtk.main_quit()
