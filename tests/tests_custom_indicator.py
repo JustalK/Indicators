@@ -1,12 +1,11 @@
-import unittest
-import init
+from src.init import Init
+import pytest
 
-class TestSum(unittest.TestCase):
-
-    def test_sum(self):
-        self.assertTrue(1 == 1)
-        initialisation = init.Init()
-        #initialisation.start()
-
-if __name__ == '__main__':
-    unittest.main()
+def test_file1_method1():
+	x=5
+	y=6
+	assert x+1 == y,"test success"
+def test_file1_method2():
+	x=5
+	y=6
+	assert x+1 == y,"test success"
