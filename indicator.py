@@ -24,6 +24,7 @@ class Indicator():
         self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
         self.indicator.set_menu(self.create_menu())
         self.indicator.set_label(consts.NAME_MENU, self.app)
+        Gtk.main()
 
     def get_menu(self, commands):
         for key in commands.keys():
@@ -50,6 +51,4 @@ class Indicator():
     def stop(self, source):
         Gtk.main_quit()
 
-Indicator()
-signal.signal(signal.SIGINT, signal.SIG_DFL)
-Gtk.main()
+#signal.signal(signal.SIGINT, signal.SIG_DFL)
