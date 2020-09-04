@@ -4,6 +4,7 @@ import os
 import gi
 import consts
 import settings
+import signal
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk, AppIndicator3
@@ -48,3 +49,7 @@ class Indicator():
 
     def stop(self, source):
         Gtk.main_quit()
+
+Indicator()
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+Gtk.main()
