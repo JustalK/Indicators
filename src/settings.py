@@ -15,17 +15,20 @@ class Settings():
         window.grid_rowconfigure(0, weight=1)
         left = tkinter.Frame(master=window, width=consts.MENU_SIZE, bg=consts.MENU_COLOR)
         left.grid(row=0, column=0, sticky='NSEW')
-        #left.pack(fill=tkinter.Y, side=tkinter.LEFT)
-        left.grid_rowconfigure(0, weight=1)
         left.grid_columnconfigure(0, weight=1)
         right = tkinter.Frame(master=window, bg=consts.BACKGROUND_COLOR)
         right.grid(row=0, column=1,sticky='NSEW')
         right.grid_rowconfigure(0, weight=1)
         right.grid_columnconfigure(0, weight=1)
-        #right.pack(fill=tkinter.BOTH, side=tkinter.LEFT, expand=True)
-
+        
         button1 = tkinter.Button(left, text='Hello')
-        button1.grid(row=1, column=0, sticky='WE')
+        button1.grid(row=0, column=0, sticky='WE')
+        button2 = tkinter.Button(left, text='Hello 2')
+        button2.grid(row=1, column=0, sticky='WE')
+        button3 = tkinter.Button(left, text='Hello 3')
+        button3.grid(row=2, column=0, sticky='WE')
+        button4 = tkinter.Button(left, text='Hello 4')
+        button4.grid(row=3, column=0, sticky='WE')
 
         window.mainloop()
 
