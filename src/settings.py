@@ -1,5 +1,5 @@
 import tkinter
-import src.consts
+import consts
 
 class Settings():
     def __init__(self):
@@ -11,7 +11,21 @@ class Settings():
         y = int(height/2 - height/4)
         window.geometry("{}x{}+{}+{}".format(int(width*2/3), int(height/2), x, y))
         left = tkinter.Frame(master=window, width=consts.MENU_SIZE, bg=consts.MENU_COLOR)
-        left.pack(fill=tkinter.Y, side=tkinter.LEFT)
+        left.grid(row=0, column=0, sticky='NSEW')
+        #left.pack(fill=tkinter.Y, side=tkinter.LEFT)
+        left.grid_rowconfigure(0, minsize=80, weight=1)
+        left.grid_columnconfigure(0,minsize=consts.MENU_SIZE)
         right = tkinter.Frame(master=window, bg=consts.BACKGROUND_COLOR)
-        right.pack(fill=tkinter.BOTH, side=tkinter.LEFT, expand=True)
+        #right.pack(fill=tkinter.BOTH, side=tkinter.LEFT, expand=True)
+
+        button1 = tkinter.Button(left, text='Hello')
+        button1.grid(row=1, column=0, sticky='we')
+
         window.mainloop()
+
+    def menubar(self, root):
+        menubar = tkinter.Menu(root)
+        pageMenu = tkinter.Menu(menubar)
+        pageMenu.add_command(label="PageOne")
+        menubar.add_cascade(label="PageOne", menu=pageMenu)
+        return menubar

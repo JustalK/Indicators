@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-from src.indicator import Indicator
+import indicator
 
 class Init():
-    def start(self):
+    def __init__(self):
         indicator.Indicator()
+
+indicator.Indicator()

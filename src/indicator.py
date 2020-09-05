@@ -2,8 +2,8 @@
 import subprocess
 import os
 import gi
-import src.consts
-from src.settings import Settings
+import consts
+import settings
 import signal
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
