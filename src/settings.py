@@ -34,4 +34,4 @@ class Settings():
         button4.grid(row=3, column=0, sticky='WE')
 
     def buttonMenubar(self, frame, text):
-        return tkinter.Button(frame, text=text, borderwidth=0, bg=consts.MENU_COLOR)
+        return tkinter.Button(frame, text=text, bd=0, height=2, highlightthickness=0, fg=consts.MENU_TEXT_COLOR, activeforeground=consts.MENU_TEXT_COLOR, activebackground=consts.MENU_TEXT_ACTIVE_COLOR,bg=consts.MENU_COLOR, justify='left', anchor='w', relief='flat')
