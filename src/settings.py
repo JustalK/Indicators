@@ -24,11 +24,14 @@ class Settings():
         window.mainloop()
 
     def menubar(self, frame):
-        button1 = tkinter.Button(frame, text='Hello')
+        button1 = self.buttonMenubar(frame, 'Button 1')
         button1.grid(row=0, column=0, sticky='WE')
-        button2 = tkinter.Button(frame, text='Hello 2')
+        button2 = self.buttonMenubar(frame, 'Button 2')
         button2.grid(row=1, column=0, sticky='WE')
-        button3 = tkinter.Button(frame, text='Hello 3')
+        button3 = self.buttonMenubar(frame, 'Button 3')
         button3.grid(row=2, column=0, sticky='WE')
-        button4 = tkinter.Button(frame, text='Hello 4')
+        button4 = self.buttonMenubar(frame, 'Button 4')
         button4.grid(row=3, column=0, sticky='WE')
+
+    def buttonMenubar(self, frame, text):
+        return tkinter.Button(frame, text=text, borderwidth=0, bg=consts.MENU_COLOR)
