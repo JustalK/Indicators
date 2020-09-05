@@ -20,21 +20,15 @@ class Settings():
         right.grid(row=0, column=1,sticky='NSEW')
         right.grid_rowconfigure(0, weight=1)
         right.grid_columnconfigure(0, weight=1)
-        
-        button1 = tkinter.Button(left, text='Hello')
-        button1.grid(row=0, column=0, sticky='WE')
-        button2 = tkinter.Button(left, text='Hello 2')
-        button2.grid(row=1, column=0, sticky='WE')
-        button3 = tkinter.Button(left, text='Hello 3')
-        button3.grid(row=2, column=0, sticky='WE')
-        button4 = tkinter.Button(left, text='Hello 4')
-        button4.grid(row=3, column=0, sticky='WE')
-
+        self.menubar(left)
         window.mainloop()
 
-    def menubar(self, root):
-        menubar = tkinter.Menu(root)
-        pageMenu = tkinter.Menu(menubar)
-        pageMenu.add_command(label="PageOne")
-        menubar.add_cascade(label="PageOne", menu=pageMenu)
-        return menubar
+    def menubar(self, frame):
+        button1 = tkinter.Button(frame, text='Hello')
+        button1.grid(row=0, column=0, sticky='WE')
+        button2 = tkinter.Button(frame, text='Hello 2')
+        button2.grid(row=1, column=0, sticky='WE')
+        button3 = tkinter.Button(frame, text='Hello 3')
+        button3.grid(row=2, column=0, sticky='WE')
+        button4 = tkinter.Button(frame, text='Hello 4')
+        button4.grid(row=3, column=0, sticky='WE')
