@@ -2,6 +2,9 @@ import tkinter
 import consts
 
 class Settings():
+
+    right = None
+
     def __init__(self):
         self.parent = self
         window = tkinter.Tk()
@@ -20,14 +23,24 @@ class Settings():
         left.grid_columnconfigure(0, weight=1)
         border = tkinter.Frame(master=window, bg=consts.BORDER_COLOR)
         border.grid(row=0, column=1, sticky='NSEW')
-        right = tkinter.Frame(master=window, bg=consts.BACKGROUND_COLOR)
-        right.grid(row=0, column=2,sticky='NSEW')
-        right.grid_rowconfigure(0, weight=1)
-        right.grid_columnconfigure(0, weight=1)
+        self.right = tkinter.Frame(master=window, bg=consts.BACKGROUND_COLOR)
+        self.right.grid(row=0, column=2,sticky='NSEW')
+        self.right.grid_columnconfigure(0, minsize=10)
+        self.right.grid_columnconfigure(1, minsize=20)
+        self.right.grid_columnconfigure(2, minsize=10)
+        self.right.grid_columnconfigure(3, weight=1)
         self.menubar(left)
         window.mainloop()
 
     def globalSettings(self):
+        shortcutLabel = tkinter.Label(self.right, text="Label")
+        shortcutLabel.grid(row=0, column=0, sticky='WE')
+        shortcutEntry = tkinter.Entry(self.right)
+        shortcutEntry.grid(row=0, column=1, sticky='WE')
+        commandLabel = tkinter.Label(self.right, text="Commands")
+        commandLabel.grid(row=0, column=2, sticky='WE')
+        commandEntry = tkinter.Entry(self.right)
+        commandEntry.grid(row=0, column=3, sticky='WE')
         print('GLOBAL')
 
     def shortcutSettings(self):
