@@ -41,13 +41,12 @@ class Settings():
         labelframe2.grid_columnconfigure(1, weight=1)
         shortcutLabel = tkinter.Label(labelframe2, text="Label", height=2, bg=consts.MENU_COLOR, justify='left', anchor='w', fg=consts.MENU_TEXT_COLOR, activeforeground=consts.MENU_TEXT_COLOR, activebackground=consts.MENU_TEXT_ACTIVE_COLOR)
         shortcutLabel.grid(row=0, column=0, sticky='WE')
-        shortcutEntry = tkinter.Entry(labelframe2, bd=0)
+        shortcutEntry = tkinter.Entry(labelframe2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, bd=5, highlightbackground=consts.BACKGROUND_COLOR, relief='flat')
         shortcutEntry.grid(row=0, column=1, sticky='WE')
         commandLabel = tkinter.Label(labelframe2, text="Commands", height=2, bg=consts.MENU_COLOR, justify='left', anchor='w', fg=consts.MENU_TEXT_COLOR, activeforeground=consts.MENU_TEXT_COLOR, activebackground=consts.MENU_TEXT_ACTIVE_COLOR)
         commandLabel.grid(row=1, column=0, sticky='WE')
-        commandEntry = tkinter.Entry(labelframe2)
+        commandEntry = tkinter.Entry(labelframe2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, bd=5, highlightbackground=consts.BACKGROUND_COLOR, relief='flat')
         commandEntry.grid(row=1, column=1, sticky='WE')
-        print('GLOBAL')
 
     def shortcutSettings(self):
         print('SHORTCUT')
