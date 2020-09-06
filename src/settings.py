@@ -3,6 +3,7 @@ import consts
 
 class Settings():
     def __init__(self):
+        self.parent = self
         window = tkinter.Tk()
         window.title(consts.NAME_SETTING)
         width  = window.winfo_screenwidth()
@@ -26,15 +27,17 @@ class Settings():
         self.menubar(left)
         window.mainloop()
 
-    def menubar(self, frame):
-        button1 = self.buttonMenubar(frame, 'Button 1')
-        button1.grid(row=0, column=0, sticky='WE')
-        button2 = self.buttonMenubar(frame, 'Button 2')
-        button2.grid(row=1, column=0, sticky='WE')
-        button3 = self.buttonMenubar(frame, 'Button 3')
-        button3.grid(row=2, column=0, sticky='WE')
-        button4 = self.buttonMenubar(frame, 'Button 4')
-        button4.grid(row=3, column=0, sticky='WE')
+    def globalSettings(self):
+        print('GLOBAL')
 
-    def buttonMenubar(self, frame, text):
-        return tkinter.Button(frame, text=text, bd=0, height=2, highlightthickness=0, fg=consts.MENU_TEXT_COLOR, activeforeground=consts.MENU_TEXT_COLOR, activebackground=consts.MENU_TEXT_ACTIVE_COLOR,bg=consts.MENU_COLOR, justify='left', anchor='w', relief='flat')
+    def shortcutSettings(self):
+        print('SHORTCUT')
+
+    def menubar(self, frame):
+        button1 = self.buttonMenubar(frame, 'Global', self.parent.globalSettings)
+        button1.grid(row=0, column=0, sticky='WE')
+        button2 = self.buttonMenubar(frame, 'Shortcut', self.parent.shortcutSettings)
+        button2.grid(row=1, column=0, sticky='WE')
+
+    def buttonMenubar(self, frame, text, command):
+        return tkinter.Button(frame, text=text, bd=0, height=2, highlightthickness=0, fg=consts.MENU_TEXT_COLOR, activeforeground=consts.MENU_TEXT_COLOR, activebackground=consts.MENU_TEXT_ACTIVE_COLOR,bg=consts.MENU_COLOR, justify='left', anchor='w', relief='flat', command = command)
