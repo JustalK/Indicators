@@ -1,5 +1,6 @@
 import tkinter
 import consts
+import menu
 
 class Settings():
 
@@ -28,7 +29,8 @@ class Settings():
         self.right.grid_columnconfigure(0, minsize=100)
         self.right.grid_columnconfigure(1, weight=1)
         self.right.grid_columnconfigure(2, minsize=100)
-        self.menubar(left)
+        menu.Menu(left, 'Global', self.parent.globalSettings)
+        menu.Menu(left, 'Shortcut', self.parent.shortcutSettings)
         window.mainloop()
 
     def globalSettings(self):
@@ -53,12 +55,3 @@ class Settings():
 
     def shortcutSettings(self):
         print('SHORTCUT')
-
-    def menubar(self, frame):
-        button1 = self.buttonMenubar(frame, 'Global', self.parent.globalSettings)
-        button1.grid(row=0, column=0, sticky='WE')
-        button2 = self.buttonMenubar(frame, 'Shortcut', self.parent.shortcutSettings)
-        button2.grid(row=1, column=0, sticky='WE')
-
-    def buttonMenubar(self, frame, text, command):
-        return tkinter.Button(frame, text=text, bd=0, height=2, highlightthickness=0, fg=consts.MENU_TEXT_COLOR, activeforeground=consts.MENU_TEXT_COLOR, activebackground=consts.MENU_TEXT_ACTIVE_COLOR,bg=consts.MENU_COLOR, justify='left', anchor='w', relief='flat', command = command)
