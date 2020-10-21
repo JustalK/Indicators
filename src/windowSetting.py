@@ -13,7 +13,7 @@ class WindowSetting():
         titleblock = tkinter.Label(title_panel, text="Shortcut 1", justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
         titleblock.grid(row=0, column=0, sticky='W')
         titleblock.grid_columnconfigure(0)
-        add = tkinter.Button(title_panel, text="+", justify='left', bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
+        add = tkinter.Button(title_panel, text="+", bd=0, highlightthickness=0, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, anchor='w', activebackground=consts.MENU_COLOR, activeforeground=consts.MENU_TEXT_COLOR, justify='left', relief='flat')
         add.grid(row=0, column=1, sticky='E')
         add.grid_columnconfigure(0)
         labelframe = tkinter.LabelFrame(self.right, bg='black', bd=1, relief='flat')
