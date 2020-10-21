@@ -6,9 +6,16 @@ class WindowSetting():
         self.right = right
 
     def show(self):
-        titleblock = tkinter.Label(self.right, text="Shortcut 1", justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
-        titleblock.grid(row=0, column=1, sticky='W')
+        title_panel = tkinter.LabelFrame(self.right, bg=consts.BACKGROUND_COLOR, bd=0, relief='flat')
+        title_panel.grid(row=0, column=1, sticky='NEWS')
+        title_panel.grid_columnconfigure(0, minsize=125)
+        title_panel.grid_columnconfigure(1, weight=1)
+        titleblock = tkinter.Label(title_panel, text="Shortcut 1", justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
+        titleblock.grid(row=0, column=0, sticky='W')
         titleblock.grid_columnconfigure(0)
+        add = tkinter.Button(title_panel, text="+", justify='left', bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
+        add.grid(row=0, column=1, sticky='E')
+        add.grid_columnconfigure(0)
         labelframe = tkinter.LabelFrame(self.right, bg='black', bd=1, relief='flat')
         labelframe.grid(row=1, column=1, sticky='WE')
         labelframe.grid_columnconfigure(0, weight=1)
