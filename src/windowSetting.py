@@ -2,12 +2,14 @@ import tkinter
 import consts
 
 class WindowSetting():
+    def __init__(self, panel):
+        self.frame = panel
 
-    def __init__(self, frame):
-        titleblock = tkinter.Label(frame, text="Shortcut 1", justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
+    def show(self):
+        titleblock = tkinter.Label(self.frame, text="Shortcut 1", justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
         titleblock.grid(row=0, column=1, sticky='W')
         titleblock.grid_columnconfigure(0)
-        labelframe = tkinter.LabelFrame(frame, bg='black', bd=1, relief='flat')
+        labelframe = tkinter.LabelFrame(self.frame, bg='black', bd=1, relief='flat')
         labelframe.grid(row=1, column=1, sticky='WE')
         labelframe.grid_columnconfigure(0, weight=1)
         labelframe2 = tkinter.LabelFrame(labelframe, bg=consts.MENU_COLOR, fg='red', bd=5, relief='flat')
