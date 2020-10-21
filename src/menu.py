@@ -4,9 +4,9 @@ import consts
 class Menu():
     count_menu = 0
 
-    def __init__(self, frame, text, command):
+    def __init__(self, left, right, text, command):
         button = tkinter.Button(
-            frame,
+            left,
             text=text,
             bd=0,
             height=2,
@@ -18,6 +18,6 @@ class Menu():
             justify='left',
             anchor='w',
             relief='flat',
-            command = command)
+            command = command.show)
         button.grid(row=Menu.count_menu, column=0, sticky='WE')
         Menu.count_menu += 1

@@ -3,7 +3,7 @@ import subprocess
 import os
 import gi
 import consts
-import settings
+import window
 import signal
 gi.require_version('Gtk', '3.0')
 gi.require_version('AppIndicator3', '0.1')
@@ -46,7 +46,7 @@ class Indicator():
         subprocess.Popen(["/bin/bash", "-c", script])
 
     def settings(self, widget):
-        settings.Settings()
+        window.Window()
 
     def stop(self, source):
         Gtk.main_quit()
