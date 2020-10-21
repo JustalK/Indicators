@@ -2,14 +2,14 @@ import tkinter
 import consts
 
 class WindowSetting():
-    def __init__(self, panel):
-        self.frame = panel
+    def __init__(self, right):
+        self.right = panel
 
     def show(self):
-        titleblock = tkinter.Label(self.frame, text="Shortcut 1", justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
+        titleblock = tkinter.Label(self.right, text="Shortcut 1", justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
         titleblock.grid(row=0, column=1, sticky='W')
         titleblock.grid_columnconfigure(0)
-        labelframe = tkinter.LabelFrame(self.frame, bg='black', bd=1, relief='flat')
+        labelframe = tkinter.LabelFrame(self.right, bg='black', bd=1, relief='flat')
         labelframe.grid(row=1, column=1, sticky='WE')
         labelframe.grid_columnconfigure(0, weight=1)
         labelframe2 = tkinter.LabelFrame(labelframe, bg=consts.MENU_COLOR, fg='red', bd=5, relief='flat')
@@ -24,3 +24,8 @@ class WindowSetting():
         commandLabel.grid(row=2, column=0, sticky='WE')
         commandEntry = tkinter.Entry(labelframe2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, bd=5, highlightbackground=consts.BACKGROUND_COLOR, relief='flat')
         commandEntry.grid(row=2, column=1, sticky='WE')
+
+        def clean_panel(self):
+            for widget in self.right.winfo_children():
+                widget.destroy()
+            self.right.pack_forget()
