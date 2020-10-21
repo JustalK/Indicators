@@ -25,7 +25,7 @@ class WindowSetting():
         commandEntry = tkinter.Entry(labelframe2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, bd=5, highlightbackground=consts.BACKGROUND_COLOR, relief='flat')
         commandEntry.grid(row=2, column=1, sticky='WE')
 
-        def clean_panel(self):
-            for widget in self.right.winfo_children():
-                widget.destroy()
-            self.right.pack_forget()
+    def clean_panel(self):
+        for widget in self.right.winfo_children():
+            widget.destroy()
+        self.right.pack_forget()
