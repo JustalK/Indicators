@@ -5,9 +5,6 @@ import windowShortcut
 import windowSetting
 
 class Window():
-
-    right = None
-
     def __init__(self):
         window = self.window_panel()
         left = self.left_panel(window)
