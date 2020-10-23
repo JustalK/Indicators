@@ -14,6 +14,7 @@ class Window():
         shortcut = windowShortcut.WindowShortcut(right)
         menu.Menu(left, right, 'Global', settings)
         menu.Menu(left, right, 'Shortcut', shortcut)
+        settings.show()
         window.mainloop()
 
     def window_panel(self):
@@ -40,10 +41,21 @@ class Window():
         border = tkinter.Frame(master=window, bg=consts.BORDER_COLOR)
         border.grid(row=0, column=1, sticky='NSEW')
 
+    def on_configure(self, event):
+        print('caboom')
+        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+
     def right_panel(self, window):
-        right = tkinter.Frame(master=window, bg=consts.BACKGROUND_COLOR)
-        right.grid(row=0, column=2,sticky='NSEW')
+        canvas = tkinter.Canvas(master=window, bg=consts.BACKGROUND_COLOR)
+        canvas.grid(row=0, column=2,sticky='NSEW')
+        scrollbar = tkinter.Scrollbar(canvas, command=canvas.yview)
+        scrollbar.grid(row=0, column=3)
+        canvas.configure(yscrollcommand = scrollbar.set)
+        right = tkinter.Frame(master=canvas, bg=consts.BACKGROUND_COLOR)
+        right.grid(sticky='NSEW')
         right.grid_columnconfigure(0, minsize=100)
         right.grid_columnconfigure(1, weight=1)
         right.grid_columnconfigure(2, minsize=100)
+        self.canvas = canvas
+        right.bind('<Configure>', self.on_configure)
         return right

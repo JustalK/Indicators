@@ -26,6 +26,7 @@ class WindowSetting():
         self.show_section(all_shortcut_section, 'Commands')
         self.show_section(all_shortcut_section, 'Commands')
         self.show_section(all_shortcut_section, 'Commands')
+        print('rrr')
 
     def title_section(self, title):
         element_title = tkinter.Label(self.right, text=title, justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
