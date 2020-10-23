@@ -4,27 +4,30 @@ import consts
 class WindowSetting():
     def __init__(self, right):
         self.right = right
+        self.row = 0
 
     def show(self):
         self.title_section('New shortcut')
         wrapper_internal = self.wrap_section();
         self.text_section(wrapper_internal, 1, 'Label')
         self.text_section(wrapper_internal, 2, 'Commands')
+        self.title_section('All shortcut')
 
     def title_section(self, title):
-        titleblock = tkinter.Label(self.right, text=title, justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
-        titleblock.grid(row=0, column=1, pady=(40, 0), sticky='W')
-        titleblock.grid_columnconfigure(0)
-        return title
+        element_title = tkinter.Label(self.right, text=title, justify='left', height=2, bg=consts.BACKGROUND_COLOR, fg=consts.MENU_TEXT_COLOR, font='Helvetica 11 bold')
+        element_title.grid(row=self.row, column=1, pady=(40, 0), sticky='W')
+        element_title.grid_columnconfigure(0)
+        self.row+=1
 
     def wrap_section(self):
         wrapper_external = tkinter.LabelFrame(self.right, bg='black', bd=1, relief='flat')
-        wrapper_external.grid(row=1, column=1, sticky='WE')
+        wrapper_external.grid(row=self.row, column=1, sticky='WE')
         wrapper_external.grid_columnconfigure(0, weight=1)
         wrapper_internal = tkinter.LabelFrame(wrapper_external, bg=consts.MENU_COLOR, fg='red', bd=5, relief='flat')
-        wrapper_internal.grid(row=1, column=0, sticky='NEWS')
+        wrapper_internal.grid(row=self.row, column=0, sticky='NEWS')
         wrapper_internal.grid_columnconfigure(0, minsize=125)
         wrapper_internal.grid_columnconfigure(1, weight=1)
+        self.row+=1
         return wrapper_internal
 
     def text_section(self, frame, row, label):
