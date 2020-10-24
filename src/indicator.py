@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""This is an example script.
+"""
+# -*- encoding: utf-8 -*-
+
+
 import subprocess
 import os
 import gi
@@ -14,6 +19,7 @@ home = expanduser("~")
 currpath = os.path.dirname(os.path.realpath(__file__))
 iconpath = currpath+"/cog.png"
 commandpath = home
+
 
 class Indicator():
     def __init__(self):
