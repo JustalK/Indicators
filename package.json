@@ -1,0 +1,12 @@
+{
+"name": "JK-Shortcut",
+"version": "1.0.0",
+"description": "A shortcut program for putting command in a shortcut indicator",
+"scripts": {
+    "install": "pip install -r requirements.txt",
+    "start": "python3 src/init.py"
+},
+"keywords": [],
+"author": "JUSTAL Kevin",
+"license": "ISC"
+}
