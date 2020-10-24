@@ -1,0 +1,7 @@
+__pycache__
+.editorconfig
+.gitattributes
+.pytest_cache
+
+build/*
+tests/*.pyc
