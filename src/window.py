@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import tkinter
 import consts
 import menu
@@ -25,7 +26,7 @@ class Window():
         height = window.winfo_screenheight()
         x = int(width/2 - width/3)
         y = int(height/2 - height/4)
-        window.geometry("{}x{}+{}+{}".format(int(width*2/3), int(height/2), x, y))
+        window.geometry('{}x{}+{}+{}'.format(int(width*2/3), int(height/2), x, y))
         window.grid_columnconfigure(0, minsize=consts.MENU_SIZE)
         window.grid_columnconfigure(1, minsize=1)
         window.grid_columnconfigure(2, weight=1)
@@ -43,14 +44,14 @@ class Window():
         border.grid(row=0, column=1, sticky='NSEW')
 
     def on_configure(self, event):
-        self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        self.canvas.configure(scrollregion=self.canvas.bbox('all'))
 
     def right_panel(self, window):
         canvas = tkinter.Canvas(window, bg='pink')
         canvas.grid(row=0, column=2, sticky='NSEW')
         canvas.grid_columnconfigure(0, weight=1)
         canvas.grid_columnconfigure(1, minsize=10)
-        scrollbar = tkinter.Scrollbar(canvas, orient = "vertical", command=canvas.yview)
+        scrollbar = tkinter.Scrollbar(canvas, orient = 'vertical', command=canvas.yview)
         scrollbar.grid(column=1, sticky='NS')
         canvas.configure(yscrollcommand = scrollbar.set)
         right = tkinter.Frame(canvas, bg=consts.BACKGROUND_COLOR)

@@ -4,7 +4,8 @@
 "description": "A shortcut program for putting command in a shortcut indicator",
 "scripts": {
     "install": "pip install -r requirements.txt",
-    "start": "python3 src/init.py"
+    "linter": "pre-commit run --files src/*",
+    "start": "python3 -X pycache_prefix=build/ src/init.py"
 },
 "keywords": [],
 "author": "JUSTAL Kevin",

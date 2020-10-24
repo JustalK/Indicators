@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """This is an example script.
 """
 NAME_MENU = 'Latsuj Menu'
